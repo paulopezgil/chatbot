@@ -1,6 +1,6 @@
 ## 1. Description of the project
 
-In this project, a GUI for a chatbot is developed using python.
+In this project, a GUI for a chatbot is developed using the Azure OpenAI API for python all together with the panel library.
 
 ## 2. Setup
 
