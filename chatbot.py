@@ -1,7 +1,8 @@
 from openai import AzureOpenAI
+import os
 
 class ChatBot:
-    def __init__(self, client : AzureOpenAI, context: str = "", temperature: float = 0, model: str = os.getenv('MODEL')):
+    def __init__(self, client : AzureOpenAI, model: str, context: str = "", temperature: float = 0):
         self.model = model
         self.messages = [{'role': 'system', 'content': context}]
         self.temperature = temperature
