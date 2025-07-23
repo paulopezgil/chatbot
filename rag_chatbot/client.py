@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv, find_dotenv
-from openai import AzureOpenAI
+from langchain_openai import AzureChatOpenAI
 
 def client():
     # Get environment variables
@@ -20,7 +20,8 @@ def client():
         )
         
     # Initialize and return an Azure OpenAI client
-    client = AzureOpenAI(
+    client = AzureChatOpenAI(
+        azure_deployment = os.getenv('GPT_MODEL'),
         api_version=api_version,
         azure_endpoint=azure_endpoint,
         api_key=api_key,
