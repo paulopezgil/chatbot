@@ -2,12 +2,12 @@ import os
 from dotenv import load_dotenv, find_dotenv
 from openai import AzureOpenAI
 
-def get_client():
+def client():
     # Get environment variables
     load_dotenv(find_dotenv())
-    api_version = os.getenv('API_VERSION')
-    azure_endpoint = os.getenv('AZURE_ENDPOINT')
-    api_key = os.getenv('API_KEY')
+    api_version = os.getenv('AZURE_OPENAI_API_VERSION')
+    azure_endpoint = os.getenv('AZURE_OPENAI_ENDPOINT')
+    api_key = os.getenv('AZURE_OPENAI_API_KEY')
     
     # Validate required environment variables
     if not all([api_version, azure_endpoint, api_key]):
@@ -15,7 +15,7 @@ def get_client():
                 """
                 Missing environment variables.
                 Please load all the required environment variables in the .env file:
-                API_VERSION, AZURE_ENDPOINT, API_KEY
+                GPT_API_VERSION, GPT_AZURE_ENDPOINT, API_KEY
                 """
         )
         
@@ -24,5 +24,5 @@ def get_client():
         api_version=api_version,
         azure_endpoint=azure_endpoint,
         api_key=api_key,
-        )
+    )
     return client
