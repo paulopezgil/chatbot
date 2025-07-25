@@ -7,12 +7,20 @@ if __name__ == "__main__":
         fn=retriever_qa,
         allow_flagging="never",
         inputs=[
-            gr.File(label="Upload PDF File", file_count="single", file_types=['.pdf'], type="filepath"),  # Drag and drop file upload
-            gr.Textbox(label="Input Query", lines=2, placeholder="Type your question here...")
+            # Drag and drop file upload
+            gr.File(label="Upload PDF File",
+                    file_count="single",
+                    file_types=['.pdf'], type="filepath"),
+            gr.Textbox(label="Input Query",
+                       lines=2,
+                       placeholder="Type your question here...")
         ],
         outputs=gr.Textbox(label="Output"),
         title="RAG Chatbot",
-        description="Upload a PDF document and ask any question. The chatbot will try to answer using the provided document."
+        description="""
+            Upload a PDF document and ask any question.
+            The chatbot will try to answer using the provided document.
+        """
     )
 
     # Launch the app
